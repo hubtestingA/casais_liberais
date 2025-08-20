@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Redirecionamento</title>
+ <!-- Meta Pixel Code -->
+ <script>
+   !function(f,b,e,v,n,t,s) 
+   {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 
+   n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 
+   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; 
+   n.queue=[];t=b.createElement(e);t.async=!0; 
+   t.src=v;s=b.getElementsByTagName(e)[0]; 
+   s.parentNode.insertBefore(t,s)}(window, document,'script', 
+   'https://connect.facebook.net/en_US/fbevents.js'); 
+   fbq('init', '1024404363116287'); 
+ </script>
+ <noscript><img height="1" width="1" style="display:none" 
+   src="https://www.facebook.com/tr?id=1024404363116287&ev=PageView&noscript=1" 
+ /></noscript>
+ <!-- End Meta Pixel Code -->
+</head>
+<body>
+ <p style="text-align: center; margin-top: 50px;">Aguarde, em 2 segundos você será redirecionado</p>
+ <script>
+   // Checar se o evento "Initiate Checkout" já foi registrado no localStorage
+   const hasTrackedCheckout = localStorage.getItem('hasTrackedCheckout');
+   if (!hasTrackedCheckout) {
+     // Registrar o evento Initiate Checkout no Meta Pixel
+     fbq('track', 'InitiateCheckout', {value: '14.90', currency: 'BRL'});
+     // Marcar no localStorage que o evento foi registrado
+     localStorage.setItem('hasTrackedCheckout', 'true');
+   }  
+ 
+   // Checar se o evento "Purchase" já foi registrado no localStorage
+   const hasTrackedPurchase = localStorage.getItem('hasTrackedPurchase');
+   if (!hasTrackedPurchase) {
+     // Registrar o evento de compra no Meta Pixel
+     fbq('track', 'Purchase', {value: '14.90', currency: 'BRL'});
+     // Marcar no localStorage que o evento foi registrado
+     localStorage.setItem('hasTrackedPurchase', 'true');
+   }
+   
+   // Redirecionar para o canal VIP após 2 segundos
+   setTimeout(function() {
+     window.location.href = "https://t.me/+cKz-qZpnfIo3N2Fh";
+   }, 2000);
+ </script>
+</body>
+</html>
